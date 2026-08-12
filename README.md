@@ -1,50 +1,84 @@
-# GameForge showcase website
+# GameForge Showcase
 
-Static single-page showcase for GameForge, a chat-driven game-asset forge.
-Everything deployable lives in `public/` — plain HTML/CSS/JS, no build step,
-no server code. Fonts are self-hosted; there are no third-party requests.
+GameForge is a static product showcase for a conversational game-asset creation agent. It presents character animation, props, maps, tilemaps, game UI kits, music, sound effects, and voice generation on an interactive canvas.
 
-## Structure
+## Experience
 
+- A scroll-driven infinite-canvas presentation on desktop.
+- A mobile-specific asset rail with lightweight scroll parallax.
+- Animated sprite previews and collision-map overlays.
+- Playable BGM, SFX, and voice samples.
+- English and Simplified Chinese localization.
+- Reduced-motion support and a conventional vertical-scroll fallback.
+
+## Stack
+
+- Semantic HTML
+- Vanilla CSS
+- Vanilla JavaScript
+- Self-hosted fonts
+- Local image and audio assets
+
+There is no build step, package manager, framework, or external runtime dependency.
+
+## Project Structure
+
+```text
+.
+├── index.html       # Page structure and all showcase sections
+├── styles.css       # Design tokens, desktop canvas, and responsive layouts
+├── main.js          # Camera motion, mobile parallax, menus, audio, and interactions
+├── i18n.js          # English and Simplified Chinese dictionaries
+└── assets/
+    ├── anim/        # Character references and sprite sheets
+    ├── audio/       # BGM, SFX, and voice samples
+    ├── fonts/       # Self-hosted web fonts
+    ├── hero/        # Hero artwork and animated assets
+    ├── how/         # Product screenshots
+    ├── maps/        # Map previews and collision data
+    ├── props/       # Prop references and animations
+    ├── tilemap/     # Tiles, buildings, and Tiled project data
+    └── ui/          # Game UI mockups and extracted elements
 ```
-public/
-├── index.html    # all eight stations
-├── styles.css    # design tokens + station styles (fonts inlined at top)
-├── main.js       # scroll-driven camera, sprite players, audio pills
-├── i18n.js       # EN/ZH dictionary + language toggle
-└── assets/       # curated images/audio exported from the product repo
-```
 
-## Local preview
+## Local Development
+
+Run any static file server from the repository root:
 
 ```bash
-python3 -m http.server 8642 --directory public
-# open http://localhost:8642
+python3 -m http.server 8642
 ```
 
-Debug helpers (query params):
+Open <http://localhost:8642>.
 
-- `?flat` — plain vertical scroll with every section active (screenshot-friendly)
-- `?cam=N` — frame station N (0–7) without scrolling
-- `?lang=en` / `?lang=zh` — force a language (otherwise: saved choice, then browser language)
+Useful query parameters:
 
-## Deploy to Cloudflare Pages
+- `?flat` uses the vertical-scroll fallback and activates every section.
+- `?cam=N` frames desktop station `N`, where `N` is from `0` to `7`.
+- `?lang=en` forces English.
+- `?lang=zh` forces Simplified Chinese.
 
-Direct upload (no repo needed):
+## Cloudflare Pages Deployment
+
+This repository is connected to the existing Cloudflare Pages project named `gameforge`.
+
+Production configuration:
+
+- Git repository: `socekin/GameForge`
+- Production branch: `main`
+- Build command: none
+- Build output directory: `/`
+
+Pushing to `main` triggers an automatic production deployment. The deployable site intentionally lives at the repository root so the existing Cloudflare configuration can be reused without changes.
+
+To inspect deployments with Wrangler:
 
 ```bash
-npx wrangler pages deploy public --project-name gameforge
+wrangler pages deployment list --project-name gameforge
 ```
-
-Or in the Cloudflare dashboard: Pages → Create → Upload assets → drag the
-`public/` folder. With a connected git repo, set build command to none and
-output directory to `public`.
 
 ## Notes
 
-- The scroll camera degrades to plain vertical scrolling on screens ≤900px
-  wide and for `prefers-reduced-motion` users.
-- Language preference persists in `localStorage` (`gf-lang`).
-- Asset sources and provenance are documented in the product repo
-  (`~/Feeling_GameForge`); regenerate GIF exports via the app's
-  `/api/assets/[id]/animation.gif` route.
+- Language preference is stored in `localStorage` under `gf-lang`.
+- Mobile and reduced-motion visitors use the static page structure instead of the desktop camera.
+- All assets required by the site are committed to this repository.

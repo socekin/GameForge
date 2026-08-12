@@ -106,6 +106,34 @@ function initStatic() {
   els.forEach(el => io.observe(el));
 }
 
+// ---------- mobile hero canvas ----------
+function initMobileHeroCanvas() {
+  const hero = document.getElementById('s-hero');
+  const mobile = window.matchMedia('(max-width: 640px)');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (!hero || !mobile.matches || reducedMotion.matches) return;
+
+  let ticking = false;
+  function frame() {
+    ticking = false;
+    const rect = hero.getBoundingClientRect();
+    const travel = Math.max(1, rect.height - window.innerHeight * 0.35);
+    const progress = Math.min(1, Math.max(0, -rect.top / travel));
+    hero.style.setProperty('--mobile-canvas-progress', progress.toFixed(3));
+  }
+
+  function onScroll() {
+    if (!ticking) {
+      ticking = true;
+      requestAnimationFrame(frame);
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  frame();
+}
+
 // ---------- mobile menu ----------
 const menuBtn = document.getElementById('menu-toggle');
 const navMenu = document.getElementById('nav-menu');
@@ -153,8 +181,31 @@ document.querySelectorAll('.audio-pill').forEach(pill => {
   });
 });
 
+// ---------- composer demo ----------
+const heroComposer = document.querySelector('.hero-composer');
+const generateButton = heroComposer?.querySelector('.send');
+if (heroComposer && generateButton) {
+  generateButton.addEventListener('click', () => {
+    if (generateButton.disabled) return;
+    generateButton.disabled = true;
+    generateButton.textContent = window.__lang === 'zh' ? '生成中…' : 'Forging…';
+
+    window.setTimeout(() => {
+      heroComposer.classList.add('is-complete');
+      generateButton.textContent = window.__lang === 'zh' ? '已生成' : 'Forged';
+    }, 700);
+
+    window.setTimeout(() => {
+      heroComposer.classList.remove('is-complete');
+      generateButton.disabled = false;
+      generateButton.textContent = window.__lang === 'zh' ? '生成' : 'Generate';
+    }, 1800);
+  });
+}
+
 // ---------- boot ----------
 if (staticMode) initStatic(); else initCamera();
+initMobileHeroCanvas();
 setActive(0);
 
 // debug flat view: activate everything so nothing is hidden mid-animation

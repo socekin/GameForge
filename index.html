@@ -46,29 +46,43 @@
         <p class="sub" data-i18n="hero.sub">An AI agent that creates game assets as you imagine:<br>characters, sprite animations, maps, UI kits, music &amp; SFX.</p>
         <div class="hero-composer">
           <div class="q" data-i18n="hero.q">a treasure chest bursting open with golden light…</div>
-          <div class="send" data-i18n="hero.send">Generate</div>
+          <button class="send" type="button" data-i18n="hero.send">Generate</button>
         </div>
       </div>
 
-      <div class="hero-asset m1" style="left:4%; top:40%; width:158px;">
+      <div class="hero-asset hero-chest m1" style="left:4%; top:40%; width:158px;">
         <div class="img checker" style="height:148px"><img src="assets/hero/chest.gif" alt="Treasure chest opening sprite animation"></div>
               </div>
-      <div class="hero-asset m2" style="left:6.5%; bottom:6%; width:150px;">
+      <div class="hero-asset hero-general m2" style="left:6.5%; bottom:6%; width:150px;">
         <div class="img checker" style="height:150px"><div class="sprite" role="img" aria-label="Ancient Chinese enemy general attack animation" style="background-image:url(assets/hero/general-sheet.png); width:100%; height:100%"></div></div>
+      </div>
+      <div class="hero-asset hero-boss optional m3" style="right:5%; bottom:8%; width:170px;">
+        <div class="img" style="height:170px">
+          <picture>
+            <source media="(max-width: 640px)" srcset="assets/hero/boss-cutout.png">
+            <img src="assets/hero/boss-ref.png" alt="Elden-ring style armored boss reference art">
+          </picture>
+        </div>
               </div>
-      <div class="hero-asset optional m3" style="right:5%; bottom:8%; width:170px;">
-        <div class="img" style="height:170px"><img src="assets/hero/boss-ref.png" alt="Elden-ring style armored boss reference art"></div>
-              </div>
-      <div class="hero-asset" style="left:3%; top:7%; width:300px;">
+      <div class="hero-asset hero-forest" style="left:3%; top:7%; width:300px;">
         <div class="img" style="height:165px"><img src="assets/hero/map-forest.png" alt="Side-scroll forest map"></div>
               </div>
-      <div class="hero-asset optional" style="right:3%; top:16%; width:240px;">
+      <div class="hero-asset hero-town optional" style="right:3%; top:16%; width:240px;">
         <div class="img" style="height:240px"><img src="assets/hero/town.jpg" alt="Tile-based town map"></div>
               </div>
-      <button class="audio-pill" style="position:absolute; right:14%; top:7%;" data-src="assets/audio/bgm-8bit-battle.mp3">
+      <button class="audio-pill hero-audio" style="position:absolute; right:14%; top:7%;" data-src="assets/audio/bgm-8bit-battle.mp3" aria-label="Play an 8-bit battle music sample">
         <span class="play">▶</span>
         <span class="wave"><i style="height:7px"></i><i style="height:13px"></i><i style="height:19px"></i><i style="height:10px"></i><i style="height:16px"></i><i style="height:6px"></i><i style="height:12px"></i><i style="height:18px"></i><i style="height:8px"></i><i style="height:14px"></i></span>
       </button>
+
+      <div class="mobile-canvas-guide" aria-hidden="true">
+        <span class="guide-node guide-node-start"></span>
+        <span class="guide-node guide-node-middle"></span>
+        <span class="guide-node guide-node-end"></span>
+        <span class="guide-coordinate guide-coordinate-start">X: 0</span>
+        <span class="guide-coordinate guide-coordinate-middle">X: 240</span>
+        <span class="guide-coordinate guide-coordinate-end">X: 480</span>
+      </div>
 
     </section>
 
