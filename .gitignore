@@ -1,0 +1,3 @@
+.DS_Store
+# visual-companion session artifacts (contain a local session key)
+.mockup/

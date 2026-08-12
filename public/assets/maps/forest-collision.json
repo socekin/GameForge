@@ -1,0 +1,139 @@
+{
+  "scene": {
+    "width": 1376,
+    "height": 768,
+    "theme": "auto"
+  },
+  "objects": [
+    {
+      "id": "platform_1",
+      "type": "platform",
+      "label": "平台1",
+      "x": 1150,
+      "y": 120,
+      "width": 203,
+      "height": 18,
+      "collidable": true
+    },
+    {
+      "id": "platform_2",
+      "type": "platform",
+      "label": "平台2",
+      "x": 926,
+      "y": 297,
+      "width": 247,
+      "height": 35,
+      "collidable": true
+    },
+    {
+      "id": "platform_3",
+      "type": "platform",
+      "label": "平台3",
+      "x": 472,
+      "y": 399,
+      "width": 309,
+      "height": 79,
+      "collidable": true
+    },
+    {
+      "id": "platform_4",
+      "type": "platform",
+      "label": "平台4",
+      "x": 1159,
+      "y": 431,
+      "width": 57,
+      "height": 25,
+      "collidable": true
+    },
+    {
+      "id": "platform_5",
+      "type": "platform",
+      "label": "平台5",
+      "x": 173,
+      "y": 434,
+      "width": 193,
+      "height": 25,
+      "collidable": true
+    },
+    {
+      "id": "platform_6",
+      "type": "platform",
+      "label": "平台6",
+      "x": 1257,
+      "y": 441,
+      "width": 37,
+      "height": 16,
+      "collidable": true
+    },
+    {
+      "id": "platform_7",
+      "type": "platform",
+      "label": "平台7",
+      "x": 1093,
+      "y": 445,
+      "width": 54,
+      "height": 18,
+      "collidable": true
+    },
+    {
+      "id": "platform_8",
+      "type": "platform",
+      "label": "平台8",
+      "x": 697,
+      "y": 463,
+      "width": 167,
+      "height": 25,
+      "collidable": true
+    },
+    {
+      "id": "platform_9",
+      "type": "platform",
+      "label": "平台9",
+      "x": 1083,
+      "y": 470,
+      "width": 68,
+      "height": 17,
+      "collidable": true
+    },
+    {
+      "id": "platform_10",
+      "type": "platform",
+      "label": "平台10",
+      "x": 1163,
+      "y": 472,
+      "width": 65,
+      "height": 20,
+      "collidable": true
+    },
+    {
+      "id": "platform_11",
+      "type": "platform",
+      "label": "平台11",
+      "x": 1327,
+      "y": 473,
+      "width": 99,
+      "height": 22,
+      "collidable": true
+    },
+    {
+      "id": "platform_12",
+      "type": "platform",
+      "label": "平台12",
+      "x": 1234,
+      "y": 477,
+      "width": 55,
+      "height": 16,
+      "collidable": true
+    },
+    {
+      "id": "platform_13",
+      "type": "platform",
+      "label": "平台13",
+      "x": 688,
+      "y": 705,
+      "width": 1376,
+      "height": 28,
+      "collidable": true
+    }
+  ]
+}

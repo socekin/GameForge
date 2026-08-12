@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GameForge — One conversation. Every game asset.</title>
+<meta name="description" content="GameForge is a chat-driven forge for game assets: characters, sprite animations, maps, UI kits, music and SFX — dropped onto an infinite canvas, engine-ready.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2316a34a'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='17' font-weight='bold' fill='white' text-anchor='middle'%3EG%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <a class="wordmark" href="#" data-goto="0">GAME<em>FORGE</em></a>
+  <div class="links">
+    <a href="#" data-goto="1" data-i18n="nav.showcase">Features</a>
+    <a href="#" data-goto="6" data-i18n="nav.how">How it works</a>
+    <a href="#" data-goto="7" data-i18n="nav.hood">Contact</a>
+    <button id="lang-toggle" class="lang-toggle" type="button">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+      <span id="lang-label">中文</span>
+    </button>
+  </div>
+</nav>
+<div class="scroll-cue" id="scroll-cue">SCROLL</div>
+
+<div class="scroll-track" id="track"></div>
+
+<div class="viewport">
+  <div class="big-board" id="board">
+
+    <!-- ============ 1 · hero ============ -->
+    <section class="station" id="s-hero" data-name="hero">
+      <div class="hero-center">
+        <h1 data-i18n="hero.h1">One conversation.<br>
+          <span class="selected-line">Every game asset.<i></i><i></i><i></i><i></i></span>
+        </h1>
+        <p class="sub" data-i18n="hero.sub">An AI agent that creates game assets as you imagine:<br>characters, sprite animations, maps, UI kits, music &amp; SFX.</p>
+        <div class="hero-composer">
+          <div class="q" data-i18n="hero.q">a treasure chest bursting open with golden light…</div>
+          <div class="send" data-i18n="hero.send">Generate</div>
+        </div>
+      </div>
+
+      <div class="hero-asset" style="left:4%; top:40%; width:158px;">
+        <div class="img checker" style="height:148px"><img src="assets/hero/chest.gif" alt="Treasure chest opening sprite animation"></div>
+              </div>
+      <div class="hero-asset" style="left:6.5%; bottom:6%; width:150px;">
+        <div class="img checker" style="height:150px"><div class="sprite" role="img" aria-label="Ancient Chinese enemy general attack animation" style="background-image:url(assets/hero/general-sheet.png); width:100%; height:100%"></div></div>
+              </div>
+      <div class="hero-asset optional" style="right:5%; bottom:8%; width:170px;">
+        <div class="img" style="height:170px"><img src="assets/hero/boss-ref.png" alt="Elden-ring style armored boss reference art"></div>
+              </div>
+      <div class="hero-asset" style="left:3%; top:7%; width:300px;">
+        <div class="img" style="height:165px"><img src="assets/hero/map-forest.png" alt="Side-scroll forest map"></div>
+              </div>
+      <div class="hero-asset optional" style="right:3%; top:16%; width:240px;">
+        <div class="img" style="height:240px"><img src="assets/hero/town.jpg" alt="Tile-based town map"></div>
+              </div>
+      <button class="audio-pill" style="position:absolute; right:14%; top:7%;" data-src="assets/audio/bgm-8bit-battle.mp3">
+        <span class="play">▶</span>
+        <span class="wave"><i style="height:7px"></i><i style="height:13px"></i><i style="height:19px"></i><i style="height:10px"></i><i style="height:16px"></i><i style="height:6px"></i><i style="height:12px"></i><i style="height:18px"></i><i style="height:8px"></i><i style="height:14px"></i></span>
+      </button>
+
+    </section>
+
+    <!-- ============ 2 · ref → animation ============ -->
+    <section class="station" id="s-anim" data-name="sprite/">
+      <div class="rise">
+        <h2 data-i18n="anim.h2">Describe a character.<br>Watch it move.</h2>
+        <p class="lede" data-i18n="anim.lede">Characters and animations are created in conversation: a reference image comes first, and once approved, the same likeness is turned into a looping animation. You can also upload your own reference art to set an existing character in motion. Pixel, Ghibli, Pixar — the style is yours to choose.</p>
+      </div>
+      <div class="anim-cases rise">
+        <figure class="anim-case panel">
+          <div class="stage checker"><div class="sprite" style="background-image:url(assets/anim/ronin-sheet.png)"></div><img class="ref-mini" src="assets/anim/ronin-ref.png" alt="Reference art the animation was created from"></div>
+        </figure>
+        <figure class="anim-case panel">
+          <div class="stage checker"><div class="sprite" style="background-image:url(assets/anim/shiba-sheet.png)"></div><img class="ref-mini" src="assets/anim/shiba-ref.png" alt="Reference art the animation was forged from"></div>
+        </figure>
+        <figure class="anim-case panel">
+          <div class="stage checker"><div class="sprite" style="background-image:url(assets/anim/roshi-sheet.png)"></div><img class="ref-mini" src="assets/anim/roshi-ref.png" alt="Reference art the animation was forged from"></div>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ 3 · props ============ -->
+    <section class="station" id="s-props" data-name="props">
+      <div class="rise">
+        <h2 data-i18n="props.h2">One prop. Every animation.</h2>
+        <p class="lede" data-i18n="props.lede">Weapons, pickups and treasure chests, created in conversation. A single prop gets a whole series of animations: idle, interaction, destruction, with its look and details kept consistent across the set.</p>
+      </div>
+      <div class="props-row rise">
+        <figure class="prop-card major panel">
+          <div class="stage checker"><div class="sprite" style="background-image:url(assets/props/sword-sheet.png)"></div><img class="ref-mini" src="assets/props/sword-ref.png" alt="Runeblade reference art"></div>
+        </figure>
+        <div class="prop-stack">
+          <figure class="prop-card panel">
+            <div class="stage checker"><div class="sprite" style="background-image:url(assets/props/chest-sheet.png)"></div><img class="ref-mini" src="assets/props/chest-ref.png" alt="Closed treasure chest reference"></div>
+          </figure>
+          <figure class="prop-card panel">
+            <div class="stage checker"><div class="sprite" style="background-image:url(assets/props/chest-destroy-sheet.png)"></div><img class="ref-mini" src="assets/props/chest-ref.png" alt="Closed treasure chest reference"></div>
+          </figure>
+        </div>
+        <div class="prop-stack">
+          <figure class="prop-card panel">
+            <div class="stage checker"><div class="sprite pixelated" style="background-image:url(assets/props/bomb-boom-sheet.png)"></div><img class="ref-mini pixelated" src="assets/props/bomb-ref.png" alt="Pixel bomb idle reference"></div>
+          </figure>
+          <figure class="prop-card panel">
+            <div class="stage checker"><div class="sprite" style="background-image:url(assets/props/house-sheet.png)"></div><img class="ref-mini" src="assets/props/house-ref.png" alt="Pixar-style house reference"></div>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 4 · maps & tilemaps ============ -->
+    <section class="station" id="s-worlds" data-name="map/ + tilemap/">
+      <div class="rise">
+        <h2 data-i18n="worlds.h2">Interactive, extensible maps.</h2>
+        <p class="lede" data-i18n="worlds.lede">Maps are created in conversation: side-scrolling levels ship with collision data, interactive from the moment they land; tile-based towns come with a tileset and a real Tiled project file, ready to extend and edit in your engine.</p>
+      </div>
+      <div class="worlds rise">
+        <div>
+          <figure class="map-fig panel" id="collision-fig">
+            <img src="assets/maps/forest.jpg" alt="Forest platformer level background">
+            <img class="overlay" src="assets/maps/forest-collision.jpg" alt="Same level with magenta collision platforms">
+          </figure>
+          <div class="map-thumbs">
+            <figure class="panel"><img src="assets/maps/contra.jpg" alt="Run-and-gun level background"></figure>
+            <figure class="panel"><img src="assets/maps/arena.jpg" alt="Dark fantasy boss arena background"></figure>
+          </div>
+        </div>
+        <div>
+          <figure class="panel"><img src="assets/tilemap/town.jpg" alt="Tile-based town, assembled"></figure>
+        </div>
+      </div>
+      <figure class="panel checker assets-strip rise">
+        <img class="b" src="assets/tilemap/building-town_hall.png" alt="Town hall sprite">
+        <img class="b" src="assets/tilemap/building-inn.png" alt="Inn sprite">
+        <img class="b" src="assets/tilemap/building-shop.png" alt="Shop sprite">
+        <img class="b" src="assets/tilemap/building-house.png" alt="House sprite">
+        <img class="t" src="assets/tilemap/tile-grassland-0.png" alt="Grass tile">
+        <img class="t" src="assets/tilemap/tile-cobblestone-0.png" alt="Cobblestone tile">
+        <img class="t" src="assets/tilemap/tile-packed_earth-0.png" alt="Packed earth tile">
+      </figure>
+    </section>
+
+    <!-- ============ 5 · game ui ============ -->
+    <section class="station" id="s-ui" data-name="uikit/">
+      <div class="rise">
+        <h2 data-i18n="ui.h2">Game UI, delivered as a kit.</h2>
+        <p class="lede" data-i18n="ui.lede">One prompt produces a finished game screen, delivered as a complete kit: every control is a standalone transparent PNG, with button states and bar frames split from their fills. Circle any region on the mockup and it joins the kit as a cut-out.</p>
+      </div>
+      <div class="uikit rise">
+        <figure class="panel"><img src="assets/ui/arpg.jpg" alt="ARPG inventory and HUD mockup screen"></figure>
+        <figure class="panel checker elements-wall">
+          <img src="assets/ui/el/belt_potion_slot.png" alt="belt potion slot">
+          <img src="assets/ui/el/close_button_hover.png" alt="close button hover">
+          <img src="assets/ui/el/close_button_normal.png" alt="close button normal">
+          <img src="assets/ui/el/close_button_pressed.png" alt="close button pressed">
+          <img src="assets/ui/el/control_bar_panel.png" alt="control bar panel">
+          <img src="assets/ui/el/exp_bar_fill.png" alt="exp bar fill">
+          <img src="assets/ui/el/exp_bar_frame.png" alt="exp bar frame">
+          <img src="assets/ui/el/gold_counter_plate.png" alt="gold counter plate">
+          <img src="assets/ui/el/health_orb_fill.png" alt="health orb fill">
+          <img src="assets/ui/el/health_orb_frame.png" alt="health orb frame">
+          <img src="assets/ui/el/icon_armor_chest.png" alt="icon armor chest">
+          <img src="assets/ui/el/icon_button_disabled.png" alt="icon button disabled">
+          <img src="assets/ui/el/icon_button_hover.png" alt="icon button hover">
+          <img src="assets/ui/el/icon_button_normal.png" alt="icon button normal">
+          <img src="assets/ui/el/icon_button_pressed.png" alt="icon button pressed">
+          <img src="assets/ui/el/icon_gem.png" alt="icon gem">
+          <img src="assets/ui/el/icon_gold_coin.png" alt="icon gold coin">
+          <img src="assets/ui/el/icon_potion_health.png" alt="icon potion health">
+          <img src="assets/ui/el/icon_potion_mana.png" alt="icon potion mana">
+          <img src="assets/ui/el/icon_rune.png" alt="icon rune">
+          <img src="assets/ui/el/icon_scroll_identify.png" alt="icon scroll identify">
+          <img src="assets/ui/el/icon_scroll_townportal.png" alt="icon scroll townportal">
+          <img src="assets/ui/el/icon_shield.png" alt="icon shield">
+          <img src="assets/ui/el/inventory_panel_frame.png" alt="inventory panel frame">
+          <img src="assets/ui/el/inventory_slot.png" alt="inventory slot">
+          <img src="assets/ui/el/main_button_disabled.png" alt="main button disabled">
+          <img src="assets/ui/el/main_button_hover.png" alt="main button hover">
+          <img src="assets/ui/el/main_button_normal.png" alt="main button normal">
+          <img src="assets/ui/el/main_button_pressed.png" alt="main button pressed">
+          <img src="assets/ui/el/mana_orb_fill.png" alt="mana orb fill">
+          <img src="assets/ui/el/mana_orb_frame.png" alt="mana orb frame">
+          <img src="assets/ui/el/minimap_frame.png" alt="minimap frame">
+          <img src="assets/ui/el/panel_divider.png" alt="panel divider">
+          <img src="assets/ui/el/panel_tab.png" alt="panel tab">
+          <img src="assets/ui/el/rarity_border_magic.png" alt="rarity border magic">
+          <img src="assets/ui/el/rarity_border_normal.png" alt="rarity border normal">
+          <img src="assets/ui/el/rarity_border_rare.png" alt="rarity border rare">
+          <img src="assets/ui/el/rarity_border_unique.png" alt="rarity border unique">
+          <img src="assets/ui/el/scrollbar_thumb.png" alt="scrollbar thumb">
+          <img src="assets/ui/el/scrollbar_track.png" alt="scrollbar track">
+          <img src="assets/ui/el/skill_icon_1.png" alt="skill icon 1">
+          <img src="assets/ui/el/skill_icon_2.png" alt="skill icon 2">
+          <img src="assets/ui/el/skill_icon_3.png" alt="skill icon 3">
+          <img src="assets/ui/el/skill_icon_4.png" alt="skill icon 4">
+          <img src="assets/ui/el/skill_slot_empty.png" alt="skill slot empty">
+          <img src="assets/ui/el/skill_slot_filled.png" alt="skill slot filled">
+          <img src="assets/ui/el/skill_slot_hover.png" alt="skill slot hover">
+          <img src="assets/ui/el/skill_slot_selected.png" alt="skill slot selected">
+          <img src="assets/ui/el/stats_panel_frame.png" alt="stats panel frame">
+          <img src="assets/ui/el/tooltip_parchment_panel.png" alt="tooltip parchment panel">
+        </figure>
+      </div>
+      <div class="ui-cases rise">
+        <figure class="panel"><img src="assets/ui/metalslug.jpg" alt="Arcade run-and-gun HUD mockup"></figure>
+        <figure class="panel"><img src="assets/ui/match3.jpg" alt="Match-3 game screen mockup"></figure>
+        <figure class="panel"><img src="assets/ui/casual.jpg" alt="Casual cartoon settings UI mockup"></figure>
+        <figure class="panel"><img src="assets/ui/candy2.jpg" alt="Casual candy UI mockup"></figure>
+      </div>
+    </section>
+
+    <!-- ============ 6 · music & sfx ============ -->
+    <section class="station" id="s-audio" data-name="audio/">
+      <div class="rise">
+        <h2 data-i18n="audio.h2">BGM, SFX and voice,<br>all in one place.</h2>
+        <p class="lede" data-i18n="audio.lede">Looping BGM, one-shot SFX and character voices are all generated in conversation, covering a game's full audio needs. Once a character is cast, its voice stays consistent across the project. Every clip below is playable.</p>
+      </div>
+      <div class="audio-grid rise">
+        <button class="audio-pill" data-src="assets/audio/bgm-8bit-battle.mp3">
+          <span class="play">▶</span>
+          <span class="wave"><i style="height:7px"></i><i style="height:13px"></i><i style="height:19px"></i><i style="height:10px"></i><i style="height:16px"></i><i style="height:6px"></i><i style="height:12px"></i><i style="height:18px"></i></span>
+          <span class="meta"><span class="title" data-i18n="audio.t1">8-bit side-scroll battle</span></span>
+        </button>
+        <button class="audio-pill" data-src="assets/audio/bgm-palace-battle.mp3">
+          <span class="play">▶</span>
+          <span class="wave"><i style="height:9px"></i><i style="height:15px"></i><i style="height:11px"></i><i style="height:18px"></i><i style="height:8px"></i><i style="height:14px"></i><i style="height:19px"></i><i style="height:10px"></i></span>
+          <span class="meta"><span class="title" data-i18n="audio.t2">Palace battlefield theme</span></span>
+        </button>
+        <button class="audio-pill" data-src="assets/audio/bgm-dark-lord.mp3">
+          <span class="play">▶</span>
+          <span class="wave"><i style="height:12px"></i><i style="height:7px"></i><i style="height:17px"></i><i style="height:9px"></i><i style="height:19px"></i><i style="height:11px"></i><i style="height:15px"></i><i style="height:8px"></i></span>
+          <span class="meta"><span class="title" data-i18n="audio.t3">Dark lord's throne</span></span>
+        </button>
+        <button class="audio-pill" data-src="assets/audio/sfx-chest-break.mp3">
+          <span class="play">▶</span>
+          <span class="wave"><i style="height:16px"></i><i style="height:19px"></i><i style="height:9px"></i><i style="height:6px"></i><i style="height:5px"></i><i style="height:4px"></i><i style="height:4px"></i><i style="height:3px"></i></span>
+          <span class="meta"><span class="title" data-i18n="audio.t4">Chest breaking</span></span>
+        </button>
+        <button class="audio-pill" data-src="assets/audio/sfx-bomb-explosion.mp3">
+          <span class="play">▶</span>
+          <span class="wave"><i style="height:18px"></i><i style="height:19px"></i><i style="height:12px"></i><i style="height:8px"></i><i style="height:5px"></i><i style="height:4px"></i><i style="height:3px"></i><i style="height:3px"></i></span>
+          <span class="meta"><span class="title" data-i18n="audio.t5">Pixel bomb explosion</span></span>
+        </button>
+        <button class="audio-pill" data-src="assets/audio/voice-lightning-kick.mp3">
+          <span class="play">▶</span>
+          <span class="wave"><i style="height:10px"></i><i style="height:16px"></i><i style="height:13px"></i><i style="height:18px"></i><i style="height:9px"></i><i style="height:15px"></i><i style="height:11px"></i><i style="height:17px"></i></span>
+          <span class="meta"><span class="title" data-i18n="audio.t6">“Lightning Kick!” · a cast character voice</span></span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ============ 7 · how it works ============ -->
+    <section class="station" id="s-how" data-name="how it works">
+      <div class="rise">
+        <h2 data-i18n="how.h2">You talk. A crew of<br>specialists forges.</h2>
+        <p class="lede" data-i18n="how.lede">A collaborating team of agents drives the whole process: dedicated specialists for characters, animation, maps, UI, music and voice; any asset can be revised and re-edited simply by talking; and the project remembers, keeping character likeness, voices and style consistent across rounds of creation.</p>
+      </div>
+      <figure class="panel app-shot rise">
+        <img src="assets/how/app-canvas.jpg" alt="The real GameForge workspace: asset library, infinite canvas with generated sprites and maps, and the chat where they were forged">
+      </figure>
+    </section>
+
+    <!-- ============ 8 · ending ============ -->
+    <section class="station" id="s-end" data-name="under the hood">
+      <div class="rise">
+        <div class="giant">GAME<em>FORGE</em></div>
+        <p class="stack-line" data-i18n="end.stack">One conversation. Every game asset.</p>
+      </div>
+      <div class="contact rise">
+        <a class="btn" href="mailto:socekin@gmail.com" data-i18n="end.cta">Get in touch</a>
+      </div>
+      <p class="colophon rise" data-i18n="end.colophon">© 2026 Jay</p>
+    </section>
+
+    <!-- stray decorations on the big board -->
+    <div class="stray cross" style="left:1640px; top:420px">+</div>
+    <div class="stray cross" style="left:640px; top:1120px">+</div>
+    <div class="stray cross" style="left:2520px; top:1560px">+</div>
+    <div class="stray cross" style="left:1180px; top:2260px">+</div>
+    <div class="stray cross" style="left:3140px; top:2760px">+</div>
+    <div class="stray cross" style="left:1520px; top:3320px">+</div>
+    <div class="stray tag" style="left:1680px; top:436px">x1640 · y420</div>
+    <div class="stray tag" style="left:3180px; top:2776px">x3140 · y2760</div>
+    <div class="stray" style="left:1000px; top:2210px"><img src="assets/tilemap/building-inn.png" alt=""></div>
+    <div class="stray" style="left:3020px; top:1180px"><img src="assets/props/bomb-ref.png" alt="" style="width:60px"></div>
+    <div class="stray" style="left:2450px; top:3660px"><img src="assets/tilemap/tile-grassland-0.png" alt="" style="width:44px"></div>
+
+  </div>
+</div>
+
+<script src="main.js"></script>
+<script src="i18n.js"></script>
+</body>
+</html>
