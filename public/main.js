@@ -102,8 +102,17 @@ function initStatic() {
         if (i >= 0) setActive(i);
       }
     });
-  }, { threshold: 0.35 });
+  }, { threshold: 0.12 });
   els.forEach(el => io.observe(el));
+}
+
+// ---------- mobile menu ----------
+const menuBtn = document.getElementById('menu-toggle');
+const navMenu = document.getElementById('nav-menu');
+if (menuBtn && navMenu) {
+  menuBtn.addEventListener('click', () => navMenu.classList.toggle('open'));
+  navMenu.addEventListener('click', () => navMenu.classList.remove('open'));
+  window.addEventListener('scroll', () => navMenu.classList.remove('open'), { passive: true });
 }
 
 // ---------- nav jumps ----------
